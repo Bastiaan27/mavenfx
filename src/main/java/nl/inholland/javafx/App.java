@@ -1,24 +1,26 @@
 package nl.inholland.javafx;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+        import javafx.application.Application;
+        import javafx.stage.Stage;
+        import nl.inholland.javafx.ui.LoginScreen;
+        import nl.inholland.javafx.ui.MainWindow;
 
-public class App extends Application {
+public class App  extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
-    public void start(Stage window) throws Exception {
-        window.setHeight(600);
-        window.setWidth(800);
-        window.setTitle("Inholland JavaFX Starter Project");
+    public void start(Stage stage) throws Exception {
+        // rendering the text more crisply
+        System.setProperty("prism.lcdtext", "false");
 
-        BorderPane pane = new BorderPane();
-        Label hello = new Label("Hello World");
-        pane.setCenter(hello);
+        // open login window
+        //LoginScreen login = new LoginScreen();
+        //login.getStage().show();
 
-        Scene scene = new Scene(pane);
-        window.setScene(scene);
-        window.show();
+        // open the main window
+        MainWindow mw = new MainWindow();
+        mw.getStage().show();
     }
 }
